@@ -1,0 +1,17 @@
+{
+  "name": "taskflow",
+  "version": "1.0.0",
+  "description": "Full-stack task tracker: Express REST API, SQLite, vanilla JS frontend",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node --no-warnings=ExperimentalWarning src/server.js",
+    "dev": "node --no-warnings=ExperimentalWarning --watch src/server.js",
+    "migrate": "node --no-warnings=ExperimentalWarning src/migrate.js",
+    "test": "node --no-warnings=ExperimentalWarning --test"
+  },
+  "engines": { "node": ">=22.5.0" },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

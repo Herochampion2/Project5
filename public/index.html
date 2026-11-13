@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TaskFlow</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>TaskFlow</h1>
+    <div id="user-box" hidden>
+      <span id="user-name"></span>
+      <button id="logout" class="ghost" type="button">Log out</button>
+    </div>
+  </header>
+
+  <p id="message" class="message" role="alert" hidden></p>
+
+  <main id="auth-view" class="card auth" hidden>
+    <h2 id="auth-title">Log in</h2>
+    <form id="auth-form" novalidate>
+      <label id="name-field" hidden>Name
+        <input name="name" autocomplete="name" maxlength="80">
+      </label>
+      <label>Email
+        <input name="email" type="email" autocomplete="email" required>
+      </label>
+      <label>Password
+        <input name="password" type="password" autocomplete="current-password" required>
+        <small id="password-hint" hidden>At least 8 characters</small>
+      </label>
+      <button type="submit" id="auth-submit">Log in</button>
+    </form>
+    <p class="switch">
+      <span id="switch-text">No account yet?</span>
+      <button id="auth-switch" class="link" type="button">Create one</button>
+    </p>
+  </main>
+
+  <main id="app-view" class="layout" hidden>
+    <section class="card" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Projects</h2>
+      <form id="project-form" class="row">
+        <label class="sr-only" for="project-name">New project name</label>
+        <input id="project-name" name="name" placeholder="New project name" maxlength="80" required>
+        <button type="submit">Add</button>
+      </form>
+      <ul id="project-list" class="list"></ul>
+    </section>
+
+    <section class="card" aria-labelledby="tasks-heading">
+      <div class="row spread">
+        <h2 id="tasks-heading">Tasks</h2>
+        <label class="inline">Show
+          <select id="status-filter">
+            <option value="">All</option>
+            <option value="todo">To do</option>
+            <option value="in_progress">In progress</option>
+            <option value="done">Done</option>
+          </select>
+        </label>
+      </div>
+      <form id="task-form" class="row" hidden>
+        <label class="sr-only" for="task-title">Task title</label>
+        <input id="task-title" name="title" placeholder="Task title" maxlength="200" required>
+        <label class="sr-only" for="task-due">Due date</label>
+        <input id="task-due" name="due_date" type="date">
+        <button type="submit">Add</button>
+      </form>
+      <ul id="task-list" class="list"></ul>
+      <p id="task-empty" class="empty">Select or create a project to see its tasks.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
